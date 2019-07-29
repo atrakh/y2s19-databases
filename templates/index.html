@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Noy's Article Database</title>
+    <style>
+      * {
+        font-size: 24px;
+      }
+
+      div {
+        margin: 1rem 0;
+      }
+
+      button {
+        padding: 0.5rem;
+      }
+
+      .created {
+        font-weight: bold;
+        background-color: yellow;
+      }
+
+      li {
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Submit a new article</h1>
+    <form action="/articles" method="POST">
+      <div>
+        Article name:
+        <input type="text" name="name" placeholder="Enter a name" />
+      </div>
+      <div>
+        Article topic:
+        <input type="text" name="topic" placeholder="Enter a topic" />
+      </div>
+      <div>
+        Rating {% for i in range(1,6) %}
+        <br />
+        <input type="radio" name="rating" value="{{i}}" /> {{i}} Stars {% endfor
+        %}
+      </div>
+      <button class="submit" type="submit" value="Submit">Submit</button>
+    {% if created %}
+    <span class="created">
+      Article created successfully!
+    </span>
+    {% endif %}
+    </form>
+
+    <h1>List of articles</h1>
+    <div class="articles">
+      <ol>{% for a in articles %}<li>Name: {{a.artical_name}} <br> Topic: {{a.topic}} <br> Rating: {{a.rating}} stars</li>{% endfor %}
+      </ol></div>
+  </body>
+</html>

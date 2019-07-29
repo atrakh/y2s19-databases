@@ -18,5 +18,3 @@ class Knowledge(Base):
                                 self.artical_name,
                                 self.topic,
                                 self.rating)
-a=Knowledge(artical_name="bla", topic="bla bla", rating=10)
-print (a)
